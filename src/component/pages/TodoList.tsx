@@ -60,8 +60,8 @@ export const TodoList = () => {
     }
   `;
 
+  // 登録したTodoを格納した変数incompleteTodosをグローバルStateから取得
   const { incompleteTodos } = useContext(TodoContext);
-
   // カスタムHookから変数useImage,関数imageFetchを取得
   const { textTitle, jsonFetch } = useTextGet();
   // カスタムHookから関数deleteTodoを取得
