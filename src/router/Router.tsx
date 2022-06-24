@@ -5,14 +5,13 @@ import { TopPage } from "../component/pages/TopPage";
 import { Page404 } from "../component/pages/Page404";
 import type { ReactNode } from "react";
 
+// インポートしたオブジェクトの型 →exportの外に記述
+type MapTypes = {
+  path: string;
+  children: ReactNode; //childrenはコンポーネントを指すのでReactNode型を指定
+};
+
 export const Router = () => {
-  // インポートしたオブジェクトの型
-
-  type MapTypes = {
-    path: string;
-    children: ReactNode; //childrenはコンポーネントを指すのでReactNode型を指定
-  };
-
   return (
     <Routes>
       {/* react router v6 doesn't support exact anymore. exactは使わない*/}
