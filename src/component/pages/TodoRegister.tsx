@@ -29,7 +29,6 @@ export const TodoRegister: FC = () => {
   const { apiPokemonBack, imageFetch } = useImageGet();
   // カスタムHookから変数apiPokemonBack,,関数imageFetchを取得
   const { todoFetch, valueFetch, startDayFetch, endDayFetch } = useAddTodos();
-
   // グローバルStateの変数群を取り出す。
   const { newTodo, startDate, endDate } = useContext(TodoContext);
 
