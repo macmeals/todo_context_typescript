@@ -2,8 +2,8 @@ import { createContext } from "react";
 import { useState } from "react";
 import type { ReactNode } from "react";
 
-//imcompletTodoの型を定義
-type Todos = {
+//imcompletTodoの型（単一のTodo)を定義
+type Todo = {
   id: number;
   todo: string;
   completeFlag: boolean;
@@ -17,8 +17,8 @@ export const TodoContext = createContext(
   {} as {
     newTodo: string;
     setNewTodo: React.Dispatch<React.SetStateAction<string>>;
-    incompleteTodos: Todos[];
-    setIncompleteTodos: React.Dispatch<React.SetStateAction<Todos[]>>;
+    incompleteTodos: Todo[];
+    setIncompleteTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
     startDate: string | undefined;
     setStartDate: React.Dispatch<React.SetStateAction<string | undefined>>;
     endDate: string | undefined;
@@ -41,7 +41,7 @@ export const TodoProvider = (props: { children: ReactNode }) => {
 
   // Todo内容、開始日時、終了日時を格納する変数incompleteTodos、状態を格納する変数setIncompleteTodosをセット
   // 型はジェネリクスで指定(配列,要素もTodoで指定)
-  const [incompleteTodos, setIncompleteTodos] = useState<Todos[]>([]);
+  const [incompleteTodos, setIncompleteTodos] = useState<Todo[]>([]);
 
   //TodoContext.Providerで挟むProps
   const { children } = props;
