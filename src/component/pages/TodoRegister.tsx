@@ -17,7 +17,7 @@ import { Toaster } from "react-hot-toast";
 
 //カスタムHookを読み込み
 import { useImageGet } from "../../hook/useImageGet"; //画像取得
-import { useAddTodos } from "../../hook/useAddtodos"; //Todo登録処理
+import { useAddTodos } from "../../hook/useAddTodos"; //Todo登録処理
 
 //グローバルStateを使う為のuseContextを読み込み
 //TodoListContextを読み込み
