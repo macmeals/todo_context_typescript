@@ -10,7 +10,6 @@ import { FC } from "react";
 
 //日付用ライブラリ：react-day-pickerをインポート
 import { DayPicker } from "react-day-picker"; // v8.0.５
-import "react-day-picker/dist/style.css"; // v8.0.5
 
 //message用ライブラリ：react-hot-toastをインポート
 import { Toaster } from "react-hot-toast";

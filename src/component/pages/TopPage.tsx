@@ -7,7 +7,6 @@ import { LinkText } from "../LinkText";
 
 //日付用ライブラリ：react-day-pickerをインポート
 import { DayPicker } from "react-day-picker"; //react-day-picker v8.0.５
-import "react-day-picker/dist/style.css"; //react-day-picker v8.0.5
 
 export const TopPage: FC = () => {
   //TypeScriptでEmotionのCSSを記載。
