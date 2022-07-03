@@ -8,6 +8,9 @@ import { css, keyframes } from "@emotion/react";
 import { BrowserRouter } from "react-router-dom";
 import { Router } from "./router/Router";
 
+//react-day-picker v8.0.5のCSSはこちらで読み込む
+import "react-day-picker/dist/style.css";
+
 export const App = () => {
   const headerStyles = css({
     textAlign: "center",
