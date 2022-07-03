@@ -12,12 +12,14 @@ type Props = {
   children: ReactNode;
 };
 
+//EmotionのCSS読み込み
+const linkstyle = css`
+  font-size: 20px;
+  height: 50px;
+`;
+
 export const LinkText: FC<Props> = memo((props) => {
   const { destination } = props;
-  const linkstyle = css`
-    font-size: 20px;
-    height: 50px;
-  `;
 
   return (
     //State(linkStateの名前でPropsで渡されたState)は登録したTodo

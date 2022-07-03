@@ -3,14 +3,15 @@
 import { css } from "@emotion/react";
 import { LinkText } from "../LinkText";
 
-export const Page404 = () => {
-  const page404styles = css({
-    display: "flex",
-    justifyContent: "center",
-    flexDirection: "column",
-    alignItems: "center",
-  });
+// @emotionのCSS読み込み
+const page404styles = css({
+  display: "flex",
+  justifyContent: "center",
+  flexDirection: "column",
+  alignItems: "center",
+});
 
+export const Page404 = () => {
   return (
     <div css={page404styles}>
       <h2>Error:404</h2>

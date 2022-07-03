@@ -17,49 +17,49 @@ import { useTextGet } from "../../hook/useTextGet";
 import { useDeleteTodo } from "../../hook/useDeleteTodo";
 import { useCompleteTodo } from "../../hook/useCompleteTodo";
 
+const todoStyles = css({
+  display: "flex",
+  justifyContent: "center",
+  flexDirection: "column",
+  alignItems: "center",
+});
+
+const todoTitleStyles = css({
+  width: "80vw",
+  backgroundColor: "#eee6e6",
+});
+
+const todoListStyles = css({
+  width: "80vw",
+  paddingInlineStart: "0",
+});
+
+const StyledLists = styled("li")`
+  display: flex;
+  padding-left: 20px;
+  align-items: center;
+  > p {
+    width: 20vw;
+    text-decoration: ${(props: { todoflag: boolean }) =>
+      props.todoflag ? "line-through" : ""};
+    margin-block-start: 0;
+    margin-block-end: 0;
+  }
+
+  &:nth-of-type(2n) {
+    background-color: #ffeded;
+  }
+`;
+
+const TodoTitles = styled("div")`
+  display: flex;
+  margin-left: 20px;
+  > p {
+    width: 20vw;
+  }
+`;
+
 export const TodoList = () => {
-  const todoStyles = css({
-    display: "flex",
-    justifyContent: "center",
-    flexDirection: "column",
-    alignItems: "center",
-  });
-
-  const todoTitleStyles = css({
-    width: "80vw",
-    backgroundColor: "#eee6e6",
-  });
-
-  const todoListStyles = css({
-    width: "80vw",
-    paddingInlineStart: "0",
-  });
-
-  const StyledLists = styled("li")`
-    display: flex;
-    padding-left: 20px;
-    align-items: center;
-    > p {
-      width: 20vw;
-      text-decoration: ${(props: { todoflag: boolean }) =>
-        props.todoflag ? "line-through" : ""};
-      margin-block-start: 0;
-      margin-block-end: 0;
-    }
-
-    &:nth-of-type(2n) {
-      background-color: #ffeded;
-    }
-  `;
-
-  const TodoTitles = styled("div")`
-    display: flex;
-    margin-left: 20px;
-    > p {
-      width: 20vw;
-    }
-  `;
-
   // 登録したTodoを格納した変数incompleteTodosをグローバルStateから取得
   const { incompleteTodos } = useContext(TodoContext);
   // カスタムHookから変数useImage,関数imageFetchを取得
