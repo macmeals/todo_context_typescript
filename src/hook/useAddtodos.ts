@@ -20,7 +20,8 @@ export const useAddTodos = () => {
   } = useContext(TodoContext);
 
   //Todoを追加する処理：関数todoFetchVoidFunction : React.MouseEventHandler<HTMLButtonElement>
-  const todoFetch: VoidFunction = () => {
+  // todoFetch -> onAddTodoLists
+  const onAddTodoLists: VoidFunction = () => {
     if (newTodo === "") return;
     const newTodos = [
       ...incompleteTodos,
@@ -44,23 +45,25 @@ export const useAddTodos = () => {
 
   //todoタスクのテキストボックスで入力した値を保存する
   //onchangeのイベントハンドラーの型を保存
-  const valueFetch = (e: React.ChangeEvent<HTMLInputElement>) =>
+  // valueFetch -> onTodoValue
+  const onTodoValue = (e: React.ChangeEvent<HTMLInputElement>) =>
     setNewTodo(e.target.value);
 
   // 開始日の状態を保存。onDayClickのイベントハンドラーはdayという引数で日程を取得可能
   // 取得した日程をstartDateの状態を保管。引数にDate型を適応する必要がある。
-  const startDayFetch = (day: Date) => {
+  // startDayFetch → onClickedStartDay
+  const onClickedStartDay = (day: Date) => {
     const clickedday = day.toLocaleDateString();
-    // setStartDate(day.toLocaleDateString());
     setStartDate(clickedday);
   };
 
   // 終了日の状態を保存 onDayClickのイベントハンドラーはdayという引数で日程を取得可能
   // 取得した日程をendDateの状態を保管。引数にDate型を適応する必要がある。
-  const endDayFetch = (day: Date) => {
+  // endDayFetch → onClickedEndDay
+  const onClickedEndDay = (day: Date) => {
     setEndDate(day.toLocaleDateString());
   };
 
   // 必要な処理、関数を返す
-  return { todoFetch, valueFetch, startDayFetch, endDayFetch };
+  return { onAddTodoLists, onTodoValue, onClickedStartDay, onClickedEndDay };
 };
