@@ -23,6 +23,24 @@ import { useAddTodos } from "../../hook/useAddTodos"; //Todo登録処理
 import { useContext } from "react";
 import { TodoContext } from "../provider/TodoProvider";
 
+//EmotionのCSS読み込み
+const registerStyles = css({
+  display: "flex",
+  justifyContent: "center",
+  flexDirection: "column",
+  alignItems: "center",
+});
+
+const matrixStyles = css({
+  display: "flex",
+  width: "50vw",
+  justifyContent: "space-between",
+});
+
+const inputStyles = css({
+  width: "600px",
+});
+
 export const TodoRegister: FC = () => {
   // カスタムHookから変数apiPokemonBack,,関数imageFetchを取得
   const { apiPokemonBack, imageFetch } = useImageGet();
@@ -35,23 +53,6 @@ export const TodoRegister: FC = () => {
   useEffect(() => {
     imageFetch();
   }, []);
-
-  const registerStyles = css({
-    display: "flex",
-    justifyContent: "center",
-    flexDirection: "column",
-    alignItems: "center",
-  });
-
-  const matrixStyles = css({
-    display: "flex",
-    width: "50vw",
-    justifyContent: "space-between",
-  });
-
-  const inputStyles = css({
-    width: "600px",
-  });
 
   return (
     <div css={registerStyles}>
