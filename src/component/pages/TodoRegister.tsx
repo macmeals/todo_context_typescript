@@ -16,7 +16,7 @@ import { Toaster } from "react-hot-toast";
 
 //カスタムHookを読み込み
 import { useImageGet } from "../../hook/useImageGet"; //画像取得
-import { useAddTodos } from "../../hook/useAddTodos"; //Todo登録処理
+import { useAddTodos } from "../../hook/useAddtodos"; //Todo登録処理
 
 //グローバルStateを使う為のuseContextを読み込み
 //TodoListContextを読み込み
@@ -63,7 +63,7 @@ export const TodoRegister: FC = () => {
       <div css={matrixStyles}>
         <div css={registerStyles}>
           <p>１．Todo開始日</p>
-          {/* カスタムHookから取得した関数onClickedStartDayを利用 */}
+          {/* カスタムHookから取得した関数startDayFetchを利用 */}
           <DayPicker onDayClick={onClickedStartDay} />
           {startDate ? (
             <p> 【Todo開始日】{startDate}</p>
@@ -73,7 +73,7 @@ export const TodoRegister: FC = () => {
         </div>
         <div css={registerStyles}>
           <p>２．Todo完了日</p>
-          {/* カスタムHookから取得した関数onClickedEndDayを利用 */}
+          {/* カスタムHookから取得した関数endDayFetchを利用 */}
           <DayPicker onDayClick={onClickedEndDay} />
           {endDate ? (
             <p>【Todo終了日】{endDate}</p>
@@ -87,7 +87,7 @@ export const TodoRegister: FC = () => {
         css={inputStyles}
         type="text"
         value={newTodo}
-        // カスタムHookから取得した関数onTodoValueを利用
+        // カスタムHookから取得した関数valueFetchを利用
         onChange={onTodoValue}
       />
       {/* Buttonコンポーネントにア ロー関数でカスタムHookから取得した関数todoFetchを渡す。 */}

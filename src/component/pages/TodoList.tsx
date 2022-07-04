@@ -63,15 +63,15 @@ export const TodoList = () => {
   // 登録したTodoを格納した変数incompleteTodosをグローバルStateから取得
   const { incompleteTodos } = useContext(TodoContext);
   // カスタムHookから変数useImage,関数imageFetchを取得
-  const { textTitle, jsonFetch } = useTextGet();
+  const { textTitle, titleFetch } = useTextGet();
   // カスタムHookから関数deleteTodoを取得
   const { deleteTodo } = useDeleteTodo();
   // カスタムHookから関数completeTodoを取得
   const { completeTodo } = useCompleteTodo();
 
-  // TodoList.jsxの初回レンダリング後のs時のみ関数jsonFetch()を実施
+  // TodoList.jsxの初回レンダリング後のs時のみ関数titleFetch()を実施
   useEffect(() => {
-    jsonFetch();
+    titleFetch();
   }, []);
 
   return (
