@@ -45,7 +45,8 @@ export const TodoRegister: FC = () => {
   // カスタムHookから変数apiPokemonBack,,関数imageFetchを取得
   const { apiPokemonBack, imageFetch } = useImageGet();
   // カスタムHookから変数apiPokemonBack,,関数imageFetchを取得
-  const { todoFetch, valueFetch, startDayFetch, endDayFetch } = useAddTodos();
+  const { onAddTodoLists, onTodoValue, onClickedStartDay, onClickedEndDay } =
+    useAddTodos();
   // グローバルStateの変数群を取り出す。
   const { newTodo, startDate, endDate } = useContext(TodoContext);
 
@@ -62,8 +63,8 @@ export const TodoRegister: FC = () => {
       <div css={matrixStyles}>
         <div css={registerStyles}>
           <p>１．Todo開始日</p>
-          {/* カスタムHookから取得した関数startDayFetchを利用 */}
-          <DayPicker onDayClick={startDayFetch} />
+          {/* カスタムHookから取得した関数onClickedStartDayを利用 */}
+          <DayPicker onDayClick={onClickedStartDay} />
           {startDate ? (
             <p> 【Todo開始日】{startDate}</p>
           ) : (
@@ -72,8 +73,8 @@ export const TodoRegister: FC = () => {
         </div>
         <div css={registerStyles}>
           <p>２．Todo完了日</p>
-          {/* カスタムHookから取得した関数endDayFetchを利用 */}
-          <DayPicker onDayClick={endDayFetch} />
+          {/* カスタムHookから取得した関数onClickedEndDayを利用 */}
+          <DayPicker onDayClick={onClickedEndDay} />
           {endDate ? (
             <p>【Todo終了日】{endDate}</p>
           ) : (
@@ -86,11 +87,11 @@ export const TodoRegister: FC = () => {
         css={inputStyles}
         type="text"
         value={newTodo}
-        // カスタムHookから取得した関数valueFetchを利用
-        onChange={valueFetch}
+        // カスタムHookから取得した関数onTodoValueを利用
+        onChange={onTodoValue}
       />
       {/* Buttonコンポーネントにア ロー関数でカスタムHookから取得した関数todoFetchを渡す。 */}
-      <Button onClickEvent={() => todoFetch()}>登録</Button>
+      <Button onClickEvent={onAddTodoLists}>登録</Button>
       <Toaster />
       <LinkText destination={"/todolist"}>Todo一覧へ</LinkText>
     </div>
