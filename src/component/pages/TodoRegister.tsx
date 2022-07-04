@@ -91,7 +91,7 @@ export const TodoRegister: FC = () => {
         onChange={onTodoValue}
       />
       {/* Buttonコンポーネントにア ロー関数でカスタムHookから取得した関数todoFetchを渡す。 */}
-      <Button onClickEvent={() => onAddTodoLists()}>登録</Button>
+      <Button onClickEvent={onAddTodoLists}>登録</Button>
       <Toaster />
       <LinkText destination={"/todolist"}>Todo一覧へ</LinkText>
     </div>
